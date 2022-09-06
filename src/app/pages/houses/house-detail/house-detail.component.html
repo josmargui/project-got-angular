@@ -1,0 +1,81 @@
+<!--menu iconos-->
+
+<div class="icons">
+    <div class="icons__item">
+      <a routerLink="/casas">Volver</a>
+    </div>
+  
+    <div class="icons__item">
+      <div routerLink="/" ><img src="https://res.cloudinary.com/dfgzfxscq/image/upload/v1661780537/Proyecto%20GoT/Group_qx0xwb.png" alt=""/></div>
+      <app-translation></app-translation>
+    </div>
+  </div>
+  
+  <!--body-->
+   
+    <!--div de foto y nombre de la casa-->
+        <div>
+            <div *ngIf="house[0].logoURL" class="gallery">
+                <img src="{{house[0].logoURL}}" alt="{{house[0].name}}" class="gallery-item"/>
+                <p>{{house[0].name}}</p>
+            </div>
+            <div *ngIf="house[0].logoURL === undefined" class="gallery">
+                <img src="{{imgDefault.src}}" alt="{{imgDefault.alt}}" class="gallery-item"/>
+                <p>{{house[0].name}}</p>
+        </div>
+    
+    <!--div de detalles-->
+    
+        <div class="text-container">
+    <!--lema-->
+            <div class="c-text">
+                <p class="c-text-font">{{"LEMA" | translate}}</p>
+                <div *ngIf="house[0].words" class=""><p>{{house[0].words}}</p></div>
+                <div *ngIf="!house[0].words"><p>Esta casa no tiene lema conocido.</p></div>
+                <!-- <div *ngIf="house[0].words.length==0"><p>Esta casa no tiene lema conocido.</p></div> -->
+            </div>
+    <!--sede-->
+            <div class="c-text">
+                <p class="c-text-font">{{"SEDE" | translate}}</p>
+
+                <div *ngFor="let item of house[0].seat ">
+                    <div *ngIf="item"><p>{{item}}</p></div>
+                </div>
+                <div *ngIf="!house[0].seat"><p>Esta casa no tiene sede conocida.</p></div>
+                <div *ngIf="house[0].seat.length==0"><p>Esta casa no tiene sede conocida.</p></div>
+            </div>
+    <!--alianzas-->
+            <div class="c-text">
+                <p class="c-text-font">{{"ALIANZAS" | translate}}</p>
+
+                <div *ngFor="let item of house[0].allegiance ">
+                    <div *ngIf="item"><p>{{item}}</p></div>
+                </div>
+
+                <div *ngIf="!house[0].allegiance"><p>Esta casa no tiene alianzas conocidas.</p></div>
+                <div *ngIf="house[0].allegiance.length==0"><p>Esta casa no tiene alianzas conocidas.</p></div>
+            </div>
+    <!--religiones-->
+            <div class="c-text">
+                <p class="c-text-font">{{"RELIGIONES" | translate}}</p>
+
+                <div *ngFor="let item of house[0].religion ">
+                    <div *ngIf="item"><p>{{item}}</p></div>
+                </div>
+                <div *ngIf="!house[0].religion"><p>Esta casa no tiene religiones conocidas.</p></div>
+                <div *ngIf="house[0].religion.length==0"><p>Esta casa no tiene religiones conocidas.</p></div> 
+            </div>
+    <!--fecha fundacion-->
+            <div class="c-text">
+                <p class="c-text-font">{{"FUNDACION" | translate}}</p>
+                <div *ngIf="house[0].createdAt"><p>{{house[0].createdAt}}</p></div>
+                <div *ngIf="!house[0].createdAt"><p>Esta casa no tiene fecha de fundación conocida.</p></div>
+                <div *ngIf="house[0].createdAt.length==0"><p>Esta casa no tiene fecha de fundación conocida.</p></div> 
+            </div>
+        </div>
+    </div>
+
+
+   
+    
+    

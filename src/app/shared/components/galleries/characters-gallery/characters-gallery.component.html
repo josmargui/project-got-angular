@@ -1,0 +1,54 @@
+<!--menu iconos-->
+
+<div class="nav-block">
+  <div class="input-block">
+    <input type="text" name="filterCharacter" placeholder="{{'BUSCAR' | translate}}" [(ngModel)]="filterCharacter"/>
+  </div>
+  <div class="icons">
+    <div routerLink="/" class="icons__item">
+      <img src="https://res.cloudinary.com/dfgzfxscq/image/upload/v1661780537/Proyecto%20GoT/Group_qx0xwb.png" alt=""/>
+    </div>
+    <app-translation></app-translation>
+  </div>
+</div>
+
+<!--body-->
+
+<div class="container-padre">
+  <div class="container">
+    <ngx-simplebar class="scroll" data-simplebar [options]="options">
+      <div class="character-block">
+        <div *ngFor="let character of characters | buscador: filterCharacter">
+          <div class="character-block__item">
+            <div *ngIf="character.image" class="image-block">
+              <a routerLink="/personajes/{{ character.name }}">
+                <div class="block-title">
+                  <h3>{{ character.name }}</h3>
+                </div>
+                <img src="{{ character.image }}" alt="{{ character.name }}" />
+              </a>
+            </div>
+            <div *ngIf="!character.image" class="image-block">
+              <a routerLink="/personajes/{{ character.name }}">
+                <div class="block-title">
+                  <h3>{{ character.name }}</h3>
+                </div>
+                <img src="{{ imgDefault.src }}" alt="{{ imgDefault.alt }}" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ngx-simplebar>
+  </div>
+</div>
+
+<!--menu-->
+<div class="routes">
+  <div routerLink="/personajes"><p routerLinkActive="active">{{"PERSONAJES" | translate}}</p></div>
+  <div routerLink="/casas"><p>{{"CASAS" | translate}}</p></div>
+  <div routerLink="/cronologia"><p>{{"CRONOLOGIA" | translate}}</p></div>
+</div>
+
+
+

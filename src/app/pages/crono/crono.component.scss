@@ -1,0 +1,164 @@
+$breakpoint: 200px;
+* {
+  box-sizing: border-box;
+}
+.container {
+  background-color: black;
+  color: white;
+}
+.container_button{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  button{
+  cursor: pointer;
+  }
+}
+.button{
+  background-color: black;
+  color:white;
+  padding:20px;
+  border: solid 3px white;
+  border-radius: 50px;
+}
+
+.container-timeline {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+  padding-bottom: 170px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    border: 2px solid white;
+    right: 40px;
+    top: 0;
+  padding-bottom: 250px;
+
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @media screen and (min-width: $breakpoint) {
+    padding: 2rem;
+    &:before {
+      left: calc(50% - 1px);
+      right: auto;
+    }
+  }
+}
+.container-timeline__item {
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-top: 2px solid white;
+  position: relative;
+  clear: both;
+  height: 100px;
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+  }
+  @media screen and (min-width: $breakpoint) {
+    width: 48%;
+    height: 100px;
+    margin: 1rem;
+    &:nth-of-type(2n) {
+      float: right;
+      margin: 1rem;
+      border-image-slice: 1;
+       &:before {
+         right: auto;
+         left: -10px;
+       }
+    }
+  }
+  @media screen and (max-width: 600px){
+    width: 44%;
+
+  }
+}
+.gallery{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Gameofthrones;
+}
+.gallery_item{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+//menu iconos
+.icons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  width: 95%;
+  cursor: pointer;
+  &__item{
+      margin: 10px 10px;
+  }
+  @media screen and (max-width: 600px){
+    justify-content:center ;
+  }
+}
+
+//menu
+.routes{
+  background-color: black;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  p{
+    font-family: Gameofthrones;
+    color: white;
+    font-size: 36px;
+    text-decoration:solid;
+    cursor: pointer;
+  }
+  & .active{
+    text-decoration: underline;
+  }
+  @media screen and (max-width: 600px){
+  padding: 10px;
+  div{
+    margin: 2px 5px;
+  }
+    p{
+    font-size: 20px;
+    cursor: pointer;
+    } 
+  }
+}
+
+@font-face {
+  font-family: Gameofthrones;
+  src: url(../../shared/assets/fonts/GameofThrones.ttf)
+}
+.scoll_bar{
+  margin: 10px 50px 0px 0px;
+  height: 89vh;
+  @media screen and (max-width: 600px){
+    height: 80vh;
+    margin: 10px 15px 0px 0px;
+
+  }
+}
+
+
